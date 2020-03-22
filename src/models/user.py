@@ -1,9 +1,7 @@
 __author__ = 'CJVR'
 
 import uuid
-
 from flask import session
-
 from src.common.database import Database
 
 
