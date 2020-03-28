@@ -65,7 +65,6 @@ class User:
                     title=title,
                     description=description,
                     author_id=self._id)
-
         blog.save_to_mongo()
 
     @staticmethod
