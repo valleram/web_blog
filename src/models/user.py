@@ -58,7 +58,7 @@ class User:
         session['email'] = None
 
     def get_blogs(self):
-        return Blog.find_by_author_id(self._id)
+        return Blog.find_by_author(self._id)
 
     def new_blog(self, title, description):
         blog = Blog(author=self.email,
@@ -68,7 +68,7 @@ class User:
         blog.save_to_mongo()
 
     @staticmethod
-    def new_post(blog_id, title, content, date=datetime.datetime.utcnow()):
+    def new_post(blog_id, title, content, date=datetime.utcnow()):
         blog = Blog.from_mongo(blog_id)
         blog.new_post(title=title,
                       content=content,
@@ -80,6 +80,7 @@ class User:
             '_id': self._id,
             'password': self.password
         }
+
 
     def _save_to_mongo(self):
         Database.insert('users', self.json())

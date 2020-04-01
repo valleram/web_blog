@@ -32,7 +32,7 @@ class Blog(object):
     def json(self):
         return {
             'author': self.author,
-            'author_id', self.author_id,
+            'author_id': self.author_id,
             'title': self.title,
             'description': self.description,
             '_id': self._id
